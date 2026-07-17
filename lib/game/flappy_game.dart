@@ -34,7 +34,7 @@ class _GameScreenState extends State<GameScreen>
   static const double _jumpVelocity = -0.78; // Sprungimpuls
   static const double _pipeSpeed = 0.42; // horizontale Geschwindigkeit
   static const double _pipeSpacing = 0.62; // Abstand zwischen Rohrpaaren
-  static const double _pipeWidth = 0.16;
+  static const double _pipeWidth = 0.10;
   static const double _gapHeight = 0.30;
   static const double _birdX = 0.28; // feste x-Position des Vogels
   static const double _birdRadius = 0.036;
