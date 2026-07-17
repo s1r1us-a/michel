@@ -112,7 +112,7 @@ class _GameScreenState extends State<GameScreen>
   }
 
   void _spawnPipe() {
-    final double margin = _gapHeight / 2 + 0.06;
+    const double margin = _gapHeight / 2 + 0.06;
     final double gapCenter = margin +
         _random.nextDouble() * (1 - _groundHeight - 2 * margin);
     _pipes.add(PipePair(x: 1.2, gapCenter: gapCenter));
@@ -201,7 +201,7 @@ class _GameScreenState extends State<GameScreen>
       fontWeight: FontWeight.w900,
       color: Colors.white,
       shadows: [
-        Shadow(offset: const Offset(2, 3), color: Colors.black.withOpacity(0.4)),
+        Shadow(offset: const Offset(2, 3), color: Colors.black.withValues(alpha: 0.4)),
       ],
     );
 
@@ -241,7 +241,7 @@ class _InfoCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 20),
       decoration: BoxDecoration(
-        color: Colors.black.withOpacity(0.45),
+        color: Colors.black.withValues(alpha: 0.45),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -322,7 +322,7 @@ class GamePainter extends CustomPainter {
   }
 
   void _paintClouds(Canvas canvas, double w, double h) {
-    final Paint paint = Paint()..color = Colors.white.withOpacity(0.7);
+    final Paint paint = Paint()..color = Colors.white.withValues(alpha: 0.7);
     final double drift = isScrolling ? scrollOffset * 0.02 : 0;
     for (int i = 0; i < 4; i++) {
       final double cx = ((i * 0.31 + 0.1 - drift) % 1.2 - 0.1) * w;
@@ -364,7 +364,7 @@ class GamePainter extends CustomPainter {
     );
 
     // Glanzstreifen
-    final Paint highlight = Paint()..color = Colors.white.withOpacity(0.25);
+    final Paint highlight = Paint()..color = Colors.white.withValues(alpha: 0.25);
     canvas.drawRect(
         Rect.fromLTRB(x + pw * 0.12, 0, x + pw * 0.28, gapTop - lipHeight),
         highlight);
