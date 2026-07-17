@@ -209,8 +209,24 @@ class _GameScreenState extends State<GameScreen>
       child: Column(
         children: [
           const SizedBox(height: 24),
-          if (_state != GameState.ready)
+          if (_state != GameState.ready) ...[
             Text('$_score', style: scoreStyle),
+            if (_bestScore > 0)
+              Text(
+                'Rekord: $_bestScore',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  shadows: [
+                    Shadow(
+                      offset: const Offset(1, 2),
+                      color: Colors.black.withValues(alpha: 0.4),
+                    ),
+                  ],
+                ),
+              ),
+          ],
           const Spacer(),
           if (_state == GameState.ready)
             const _InfoCard(
